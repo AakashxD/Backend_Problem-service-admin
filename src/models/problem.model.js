@@ -16,7 +16,7 @@ const ProblemSchema = new mongoose.Schema({
     default: "easy",
   },
   // [{input :'5',output :'10'},{input:'2',output:'20'}]
-  testcases:[{
+  testCases:[{
     input:{
         type:String,
         required:true,
