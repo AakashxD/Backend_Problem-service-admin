@@ -25,9 +25,9 @@ async function addProblem(req, res, next) {
 }
 async function getProblem(req, res,next) {
   try {
-    const { id } = req.params;
    
-    const problem = await problemService.getProblem(id);
+   
+    const problem = await problemService.getProblem(req.params.id);
 
    return res.status(StatusCodes.OK).json({
     success:true,
@@ -57,9 +57,10 @@ async function getProblem(req, res,next) {
 async function deleteProblem(req, res, next) {
   try {
 
-    const problemSerice=new ProblemService(new ProblemRepository());
-    const delProblem=await problemSerice.deleteProblem();
-    return res.status(StatusCodes.OK)
+    const delProblem=await problemService.deleteProblem();
+    return res.status(StatusCodes.OK).json({
+      data:delProblem
+    })
 
   } catch (error) {
     next(error);
