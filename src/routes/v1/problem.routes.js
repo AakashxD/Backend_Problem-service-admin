@@ -4,9 +4,9 @@ const {problemController} =require("../../controllers/index");
 
 const problemRouter=express.Router();
 // const problemRouter.get("/ping",problemController.)
-problemRouter.get("/",problemController.getProblem);
+problemRouter.get("/:id",problemController.getProblem);
 
-problemRouter.get("/:id",problemController.getProblems);
+problemRouter.get("/",problemController.getProblems);
 
 problemRouter.put("/:id",problemController.updateProblem);
 

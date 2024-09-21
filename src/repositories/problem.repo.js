@@ -16,12 +16,8 @@ class ProblemRepository {
   async getProblemR(id){
     try {
       const problem = await Problem.findById(id);
-
-      if (!problem) {
-        throw error;
-      }
-
-      return problem;
+          return problem;
+   
           } catch (error) {
             throw error;
           }

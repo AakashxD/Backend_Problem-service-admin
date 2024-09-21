@@ -32,12 +32,10 @@ class ProblemService{
         }
     }
     async getAllProblems(){
-         try {
-            const problems=this.ProblemRepository.getAllProblemsR();
-         } catch (error) {
-            console.log(error);
-            throw error;
-         }
+       
+            const problems= await this.ProblemRepository.getAllProblemsR();
+            return problems;
+         
     }
     async deleteProblem(id){
              try {

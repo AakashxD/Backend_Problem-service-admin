@@ -27,31 +27,36 @@ async function getProblem(req, res,next) {
   try {
     const { id } = req.params;
    
-    const getproblem = await problemService.getProblem(id);
+    const problem = await problemService.getProblem(id);
 
-    if (!problem) {
-      // Problem not found, return 404 status code
-      return res
-        .status(StatusCodes.NOT_FOUND)
-        .json({ message: "Problem not found" });
-    }
-   return res.status(StatusCodes.OK).json(problem);
+   return res.status(StatusCodes.OK).json({
+    success:true,
+    message:"sucessfully created a new problem",
+    error:{},
+    data:problem
+   });
   } catch (error) {
     next(error);
   }
 }
  async function getProblems(req, res, next) {
   try {
-    const problemService = new ProblemService(new ProblemRepository());
-    const getproblems = await  problemService.getAllProblems();
-   return res.status(StatusCodes.OK).json(getproblems);
+
+    const Allproblems = await  problemService.getAllProblems();
+
+   return res.status(StatusCodes.OK).json({
+    success:true,
+    message:"sucessfully fetch all new problem",
+    error:{},
+    data:Allproblems
+   });
   } catch (error) {
     next(error);
   }
 }
 async function deleteProblem(req, res, next) {
   try {
-    
+
     const problemSerice=new ProblemService(new ProblemRepository());
     const delProblem=await problemSerice.deleteProblem();
     return res.status(StatusCodes.OK)
