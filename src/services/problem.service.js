@@ -22,7 +22,7 @@ class ProblemService{
 
             // Handle case if the problem is not found
             if (!problem) {
-                throw error;
+                throw  new error;
             }
 
             return problem;
@@ -40,6 +40,7 @@ class ProblemService{
     async deleteProblem(id){
              try {
                 const del =this.ProblemRepository.deleteProblemR(id);
+                return del;
              } catch (error) {
                 console.log(error);
                 throw error;
@@ -47,7 +48,7 @@ class ProblemService{
     }
     async updateProblem(id){
         try {
-            const updateProblem=this.ProblemRepository
+            
         } catch (error) {
             
         }
